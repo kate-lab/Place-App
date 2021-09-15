@@ -1,0 +1,54 @@
+@import "~bootstrap/scss/bootstrap";
+
+.nav {
+  background-color: rgb(219, 68, 68);
+  height: 55px;
+}
+.nav-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.navLink {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 30px;
+  font-family: 'Patua One', cursive;
+  margin-left: 50px;
+}
+.homeBody {
+  background-image: url('https://a.cdn-hotels.com/gdcs/production112/d1899/d77bcff2-a859-4785-bdb1-3b15a0887607.jpg');
+  background-size: cover;
+  height: calc(100vh - 50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Patua One', cursive;
+
+}
+.hero {
+  background-color: rgb(232, 240, 243);
+  width: 900px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 8px 8px 8px #888888;
+  
+}
+.btn {
+  background-color: rgb(219, 68, 68);
+  margin-top: 100px;
+  height: 55px;
+  width: 280px;
+  color: white;
+  box-shadow: 8px 8px 8px #888888;
+  font-size: 23px;
+  display: flex;
+  align-items: center;
+  
+
+}

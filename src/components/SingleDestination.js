@@ -4,12 +4,11 @@ import { useParams } from 'react-router-dom'
 
 const SingleDestination = () => {
   const [destination, setDestination] = useState(null)
-  const [hasError, setHasError] = useState(false)
 
-  const {  attributes: { budget } , name } = destination
+
 
   const { id } = useParams()
-  console.log(id)
+
 
   useEffect(() => {
     const getData = async () => {
@@ -25,63 +24,55 @@ const SingleDestination = () => {
 
         setDestination(data)
       } catch (err) {
-        setHasError(true)
+        console.log(err)
       }
     }
     getData()
   }, [id])
 
-  useEffect(() => console.log(destination), [destination])
 
-  //data.attributes.budget[${name}].text
-  // const budgetInfo = Object.values(destination.data.attributes.budget)
-  // console.log(budgetInfo[0])
+
+  if (!destination) {
+    return <h2 className='display-5 text-center'> Loading...</h2>
+  }
+
+
+
+  const { attributes: { budget, name, airbnb_url: airbnbUrl, wikipedia_url: wikipediaUrl }, relationships } = destination.data
+
+  const knownFor = destination.included ? destination.included.filter(included => included.type === 'known_for') : []
+
+  const photoId = relationships ? relationships.photos.data[0].id : ''
+
+  const photoData = destination.included ? destination.included.find(included => included.type === 'photo' && included.id === photoId) : []
+
+
 
   return (
     <div>
-
-      {destination ?
-      //if truey - has a value then return out content!:
-
-        <div className="container mt-4">
-
-          {destination.length > 0 ?
-
-            <div>
-              {/* <h2>{destination.data.attributes.name}</h2> */}
-              <hr />
-              {/* <h2>{Object.values(destination.data.attributes.budget)[0].text}</h2> */}
-              <h2> Budget: {budget.name.text} </h2>
-              
-              {/* <h2>{destination.data.attributes.average_rating}</h2> */}
-              
-              {/* <h2>{destination.data.attributes.covid.text}</h2> */}
-              <button to='destination.data.attribute.airbnb_url'>Find Somewhere to Stay in {name}</button>
+      <div className="container col-xxl-8 px-4 py-5">
+        <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div className="col-10 col-sm-8 col-lg-6">
+            <img className="img-fluid" src={photoData.attributes.image.large} alt={name} />
+          </div>
+          <div className="col-lg-6">
+            <h1 className="display-5 fw-bold lh-1 mb-5">{name}</h1>
+            {knownFor.map(item =>
+              <div className="badge bg-secondary me-1 mb-1" key={item.id}>
+                {item.attributes.name}
+                <img src={item.attributes.icon + '-48.png'} alt={item.attributes.name} />
+              </div>
+            )}
+            <h2 className="mt-2"> Budget: {Object.values(budget)[0].text}</h2>
+            <div className="d-grid gap-2 d-md-flex mt-5 justify-content-md-start">
+              <a className='btn btn-primary btn-lg px-4 me-md-2' href={airbnbUrl} target="_blank" rel="noreferrer">Search on AirBnb</a>
+              <a className='btn btn-light btn-lg px-4 me-md-2' href={wikipediaUrl} target="_blank" rel="noreferrer">Wikipedia</a>
             </div>
-
-            :
-            <>
-              {hasError ?
-                <h2 className='display-5 text-center'> Something went wrong!</h2>
-                :
-                <h2 className='display-5 text-center'> Loading...</h2>
-              }
-            </>
-          }
+          </div>
         </div>
-        :
-        //if falsey
-        <>
-          {hasError ?
-            <h2 className='display-5 text-center'> Something went wrong!</h2>
-            :
-            <h2 className='display-5 text-center'> Loading...</h2>
-          }
-        </>
-        
-      }
-
+      </div>
     </div>
+
   )
 }
 

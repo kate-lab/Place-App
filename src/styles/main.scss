@@ -17,10 +17,10 @@
   font-family: 'Patua One', cursive;
   margin-left: 50px;
 }
-.homeBody {
+.home-body , .search-body {
   background-image: url('https://a.cdn-hotels.com/gdcs/production112/d1899/d77bcff2-a859-4785-bdb1-3b15a0887607.jpg');
   background-size: cover;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 90px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,26 +29,40 @@
 }
 .hero {
   background-color: rgb(232, 240, 243);
-  width: 900px;
-  height: 350px;
+  width: 60%;
+  height: 40%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   border-radius: 5px;
-  box-shadow: 8px 8px 8px #888888;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
   
 }
 .btn {
-  background-color: rgb(219, 68, 68);
-  margin-top: 100px;
-  height: 55px;
-  width: 280px;
-  color: white;
-  box-shadow: 8px 8px 8px #888888;
   font-size: 23px;
-  display: flex;
-  align-items: center;
-  
-
+}
+footer{
+  p{
+    color: white;
+    font-weight: bold;
+    align-self: center;
+  }
+}
+.search{
+  .search-functions{
+    background-color: rgb(232, 240, 243);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
+  }
+  .destination-card {
+    margin-bottom: 2vh;
+    background-color: rgb(232, 240, 243);
+    border-radius: 5px;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
+  }
 }

@@ -4,7 +4,8 @@ import { BrowserRouter , Route , Switch } from 'react-router-dom'
 // components
 import Navbar from './components/Navbar'
 import Home from './components/Home'
-import DestinationSearch from './components/DestinationSearch'
+import Footer from './components/Footer'
+import DestinationSearchPage from './components/DestinationSearchPage'
 import SingleDestination from './components/SingleDestination'
 
 function App() {
@@ -18,12 +19,13 @@ function App() {
             <Home />
           </Route>
           <Route exact path='/destinations'>
-            <DestinationSearch />
+            <DestinationSearchPage />
           </Route>
           <Route path='/destinations/:searchTerm'>
             <SingleDestination />
           </Route>
         </Switch>
+        <Footer />
       </BrowserRouter>
     </div>
   )

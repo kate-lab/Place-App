@@ -44,34 +44,32 @@ const DestinationSearchPage = () => {
 
 
   return (
-    <div className="search-body">
-      <section className='search container'>
-        
-        <div className='search-functions col col-12 '>
-          <h2>Search Destinations</h2>
-          {/* search field */}
-          <input type='text' placeholder='your destination' id='search-field' onInput={handleSearch}></input>
+    <section className="search-body text-center">
+      
+      <div className='search-functions'>
+        <p className='display-6' >Find your favourite place:  <input type='text' placeholder='Where do you want to go?' id='search-field' onInput={handleSearch}></input></p> 
+      </div>
+    
+      <div className='searched-destinations mt-4 container'>
+        <div className='row'>
+          
+          {destinations.length > 0 ?
+            destinations.map(destination => {
+              return <DestinationCard key={destination.id} destination={destination}/>
+            })
+            :
+            <>
+              {error ?
+                <h2 className='display-5 text-center'> Something went wrong!</h2>
+                :
+                <h2 className='display-5 text-center'> Loading...</h2>
+              }
+            </>
+          }
         </div>
-        <div className='searched-destinations'>
-          <div className='row gx-5'>
-            
-            {destinations.length > 0 ?
-              destinations.map(destination => {
-                return <DestinationCard key={destination.id} destination={destination}/>
-              })
-              :
-              <>
-                {error ?
-                  <h2 className='display-5 text-center'> Something went wrong!</h2>
-                  :
-                  <h2 className='display-5 text-center'> Loading...</h2>
-                }
-              </>
-            }
-          </div>
-        </div>
-      </section>
-    </div>
+      </div>
+      
+    </section>
   )
 }
 

@@ -6,29 +6,32 @@ const SingleDestination = () => {
   const [destination, setDestination] = useState(null)
   const [hasError, setHasError] = useState(false)
 
-  const {  attributes: { budget } , name } = destination
+  
 
   const { id } = useParams()
+
   console.log(id)
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const { data } = await axios(
+        const { apiData } = await axios(
           `https://api.roadgoat.com/api/v2/destinations/${id}`,
           {
             headers: {
               Authorization: 'Basic NDMwNTVhZTIwNzM3Mzk0NzlkZjhmNjZhM2ZiYTQxMWI6N2E3YzcwY2RlNTY0MWQ1YWQwMDBmMzQ2ZDBhN2E5NzM=',
             },
           }
+          
         )
 
-        setDestination(data)
+        setDestination(apiData)
       } catch (err) {
         setHasError(true)
       }
     }
     getData()
+    
   }, [id])
 
   useEffect(() => console.log(destination), [destination])
@@ -48,15 +51,15 @@ const SingleDestination = () => {
           {destination.length > 0 ?
 
             <div>
-              {/* <h2>{destination.data.attributes.name}</h2> */}
+              <h2>{destination.data.attributes.name}</h2>
               <hr />
               {/* <h2>{Object.values(destination.data.attributes.budget)[0].text}</h2> */}
-              <h2> Budget: {budget.name.text} </h2>
+              {/* <h2> Budget: {budget.name.text} </h2> */}
               
               {/* <h2>{destination.data.attributes.average_rating}</h2> */}
               
               {/* <h2>{destination.data.attributes.covid.text}</h2> */}
-              <button to='destination.data.attribute.airbnb_url'>Find Somewhere to Stay in {name}</button>
+              <button to='data.attributes.airbnb_url'>Find Somewhere to Stay in {destination.data.attributes.name}</button>
             </div>
 
             :

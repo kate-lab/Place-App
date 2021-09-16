@@ -7,22 +7,32 @@ const DestinationCard = ({ destination }) => {
   const { attributes, id } = destination
 
   // const photoId = destination.relationships.featured_photo.data.id
-
+  
   // const imageSrc = destination.included.find(item => item.id === photoId)
   // console.log(destination)
+  console.log(Math.round(attributes.average_rating).toString())
   return (
-    <div className='destination-card col-12 col-md-6 col-lg-4 p-3'>
-      <h4>{attributes.name}</h4>
-      <h6>Visitor Rating:</h6>
-      <h2> {attributes.average_rating} </h2>
-      <h6>Destination type:</h6>
-      <h2> {attributes.destination_type} </h2>
-      {/* {imageSrc && (
-        <img src={imageSrc.relationships.image.full}></img>
-      )} */}
-      <p>
-        <Link to={`/destinations/${id}`}>Find out more about {attributes.name}</Link>
-      </p>
+    <div className='destination-card col-12 col-md-6 col-lg-4 gy-3'>
+      <div className='card  h-100 text-center'>
+        <div className='card-header align-middle'>
+          <h4>{attributes.name}</h4>
+        </div>
+        <div className='card-text align-middle'>
+          <div className='rating'>
+            <h6>Visitor Rating:</h6>
+            <h2 className='score' data-status={Math.round(attributes.average_rating).toString()}> {parseFloat(attributes.average_rating.toFixed(1))} </h2>
+          </div>
+          <div>
+            <h6>Type: {attributes.destination_type} </h6>
+            {/* {imageSrc && (
+              <img src={imageSrc.relationships.image.full}></img>
+            )} */}
+            <p>
+              <Link to={`/destinations/${id}`}>Find out more about {attributes.name}</Link>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

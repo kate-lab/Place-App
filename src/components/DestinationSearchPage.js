@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-// import { Link } from 'react-router-dom'
 import axios from 'axios'
 import DestinationCard from './DestinationCard'
 
@@ -54,7 +53,7 @@ const DestinationSearchPage = () => {
           <input type='text' placeholder='your destination' id='search-field' onInput={handleSearch}></input>
         </div>
         <div className='searched-destinations'>
-          <div className='row'>
+          <div className='row gx-5'>
             
             {destinations.length > 0 ?
               destinations.map(destination => {

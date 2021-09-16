@@ -21,7 +21,7 @@ function App() {
           <Route exact path='/destinations'>
             <DestinationSearchPage />
           </Route>
-          <Route path='/destinations/:searchTerm'>
+          <Route path='/destinations/:id'>
             <SingleDestination />
           </Route>
         </Switch>

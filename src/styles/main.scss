@@ -3,29 +3,34 @@
 .nav {
   background-color: rgb(219, 68, 68);
   height: 55px;
+  .nav-container {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+  .navLink {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 30px;
+    font-family: 'Patua One', cursive;
+    margin-left: 50px;
+  }
 }
-.nav-container {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
-  align-items: flex-end;
-}
-.navLink {
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  font-size: 30px;
-  font-family: 'Patua One', cursive;
-  margin-left: 50px;
-}
+
 .home-body , .search-body {
-  background-image: url('https://a.cdn-hotels.com/gdcs/production112/d1899/d77bcff2-a859-4785-bdb1-3b15a0887607.jpg');
   background-size: cover;
   height: calc(100vh - 90px);
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Patua One', cursive;
-
+}
+.home-body {
+  background-image: url('https://a.cdn-hotels.com/gdcs/production112/d1899/d77bcff2-a859-4785-bdb1-3b15a0887607.jpg');
+}
+.search-body {
+  background-color: darkgray;
 }
 .hero {
   background-color: rgb(232, 240, 243);
@@ -37,6 +42,9 @@
   align-items: center;
   border-radius: 5px;
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
+  h1 {
+    align-self: center;
+  }
   
 }
 .btn {
@@ -50,14 +58,20 @@ footer{
   }
 }
 .search{
+
   .search-functions{
     background-color: rgb(232, 240, 243);
-    height: 50px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
+    input{
+      padding: 8px;
+      font-size: 23px;
+    }
   }
   .destination-card {
     margin-bottom: 2vh;

@@ -1,82 +1,123 @@
 @import "~bootstrap/scss/bootstrap";
 
-.nav {
-  background-color: rgb(219, 68, 68);
-  height: 55px;
-  .nav-container {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
-    align-items: flex-end;
-  }
-  .navLink {
-    color: rgb(255, 255, 255);
+.navbar {
+  a {
+    color: white;
     text-decoration: none;
-    font-size: 30px;
-    font-family: 'Patua One', cursive;
-    margin-left: 50px;
   }
 }
 
-.home-body , .search-body {
+.site-wrapper {
   background-size: cover;
-  height: calc(100vh - 90px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Patua One', cursive;
+  min-height: 100vh;
 }
 .home-body {
   background-image: url('https://a.cdn-hotels.com/gdcs/production112/d1899/d77bcff2-a859-4785-bdb1-3b15a0887607.jpg');
+  background-size: cover;
+  min-height: (87vh);
 }
-.search-body {
-  background-color: darkgray;
+.search-body  {
+  background: rgb(25,55,94);
+  background: linear-gradient(270deg, rgba(25,55,94,1) 47%, rgba(29,118,140,1) 100%);
+  min-height: (100vh);
 }
+.search-functions{
+  background-color: rgb(255, 255, 255 , 0.6);
+  padding: 20px;
+  width: 100vw;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
+  margin-bottom: 20px;
+  p{
+    display:flex;
+    align-content: center;
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+  input{
+    padding: 10px;
+    text-align: center;
+    font-size: 25px;
+    width: 420px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 15px;
+  }
+}
+
+.card {
+  padding: 0;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
+  background-color: rgb(255, 255, 255 , 0.6);
+  color: rgba(25,55,94);
+  
+  .card-header{
+    background-color: rgb(255, 255, 255);
+    h4 {
+      margin: auto;
+    }
+  }
+  .card-text {
+    padding: 10px;
+    display: flex;
+    .rating {
+      width: fit-content;
+      color: white;
+      background-color: rgba(25,55,94);
+      padding: 8px;
+      border-radius: 8px;
+
+      h2[data-status='0']{
+        color: red;
+      }
+      h2[data-status='1']{
+        color: orange;
+      }
+      h2[data-status='2']{
+        color: rgb(255, 234, 0);
+      }
+      h2[data-status='3']{
+        color: rgb(255, 255, 0)
+      }
+      h2[data-status='4']{
+        color: lightgreen;
+      }
+      h2[data-status='5']{
+        color: rgb(10, 191, 10);
+      }
+    }
+    p {
+      margin: 8px;
+    }
+  }
+}
+
+
+h1, h2, h3 {
+  font-family: 'Patua One', cursive;
+}
+
+
 .hero {
-  background-color: rgb(232, 240, 243);
-  width: 60%;
-  height: 40%;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 55%;
+  height: 35%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
-  h1 {
-    align-self: center;
-  }
-  
 }
 .btn {
   font-size: 23px;
 }
 footer{
-  p{
+  justify-content: center;
+  p {
     color: white;
     font-weight: bold;
     align-self: center;
-  }
-}
-.search{
-
-  .search-functions{
-    background-color: rgb(232, 240, 243);
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
-    margin-bottom: 20px;
-    input{
-      padding: 8px;
-      font-size: 23px;
-    }
-  }
-  .destination-card {
-    margin-bottom: 2vh;
-    background-color: rgb(232, 240, 243);
-    border-radius: 5px;
-    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
   }
 }

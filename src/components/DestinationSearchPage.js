@@ -49,7 +49,7 @@ const DestinationSearchPage = () => {
 
   return (
     <div className="search-body">
-      <section className='search container'>
+      <div className='search container'>
 
         <div className='search-functions col col-12 '>
           <h2>Search Destinations</h2>
@@ -74,7 +74,8 @@ const DestinationSearchPage = () => {
           )}
 
         </div>
-      </section>
+      </div>
+
     </div>
   )
 }

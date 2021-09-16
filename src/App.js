@@ -17,6 +17,7 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <Home />
+            <Footer />
           </Route>
           <Route exact path='/destinations'>
             <DestinationSearchPage />
@@ -25,7 +26,7 @@ function App() {
             <SingleDestination />
           </Route>
         </Switch>
-        <Footer />
+        
       </BrowserRouter>
     </div>
   )

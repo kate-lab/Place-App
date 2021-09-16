@@ -13,21 +13,23 @@ const SingleDestination = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const { data } = await axios(
+        const { apiData } = await axios(
           `https://api.roadgoat.com/api/v2/destinations/${id}`,
           {
             headers: {
               Authorization: 'Basic NDMwNTVhZTIwNzM3Mzk0NzlkZjhmNjZhM2ZiYTQxMWI6N2E3YzcwY2RlNTY0MWQ1YWQwMDBmMzQ2ZDBhN2E5NzM=',
             },
           }
+
         )
 
-        setDestination(data)
+        setDestination(apiData)
       } catch (err) {
         console.log(err)
       }
     }
     getData()
+
   }, [id])
 
 

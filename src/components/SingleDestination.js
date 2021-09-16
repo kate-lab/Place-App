@@ -4,16 +4,12 @@ import { useParams } from 'react-router-dom'
 
 const SingleDestination = () => {
   const [destination, setDestination] = useState(null)
-
-
-
   const { id } = useParams()
-
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const { apiData } = await axios(
+        const { data } = await axios(
           `https://api.roadgoat.com/api/v2/destinations/${id}`,
           {
             headers: {
@@ -22,8 +18,7 @@ const SingleDestination = () => {
           }
 
         )
-
-        setDestination(apiData)
+        setDestination(data)
       } catch (err) {
         console.log(err)
       }
@@ -37,7 +32,6 @@ const SingleDestination = () => {
   if (!destination) {
     return <h2 className='display-5 text-center'> Loading...</h2>
   }
-
 
 
   const { attributes: { budget, name, airbnb_url: airbnbUrl, wikipedia_url: wikipediaUrl }, relationships } = destination.data

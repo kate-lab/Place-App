@@ -9,14 +9,14 @@ const Navbar = () => {
         <div className='navbar-brand'>
           <Link className="logo" to='/'><img src={favicon} alt='globe' width='40px'></img></Link>
         </div>
-        <dive className='navbar-nav'>
+        <div className='navbar-nav'>
           <div className='nav-item m-2'>
             <Link className="navLink" to='/'>Home</Link>
           </div>
           <div className='nav-item m-2'>
             <Link className="navLink" to='/destinations'>Search Destinations</Link>
           </div>
-        </dive>
+        </div>
       </div>
     </div>
   )

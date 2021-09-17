@@ -15,7 +15,7 @@ const SingleDestination = () => {
           `https://api.roadgoat.com/api/v2/destinations/${id}`,
           {
             headers: {
-              Authorization: 'Basic NDMwNTVhZTIwNzM3Mzk0NzlkZjhmNjZhM2ZiYTQxMWI6N2E3YzcwY2RlNTY0MWQ1YWQwMDBmMzQ2ZDBhN2E5NzM=',
+              Authorization: 'Basic MDNmMGQ2NGIzNmM0YWIyYzg2NzNiZjM2NWVmZmViNDI6OGY2OGU4OWM1ZDM1MmRhN2MzNGJmMmU3NzVhMDQ3Njg=',
             },
           }
 

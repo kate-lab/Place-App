@@ -4,6 +4,7 @@
   a {
     color: white;
     text-decoration: none;
+    font-size: 20px;
   }
 }
 
@@ -14,12 +15,14 @@
 .home-body {
   background-image: url('https://a.cdn-hotels.com/gdcs/production112/d1899/d77bcff2-a859-4785-bdb1-3b15a0887607.jpg');
   background-size: cover;
-  min-height: (87vh);
+  min-height: (100vh);
 }
-.search-body  {
+.search-body  , .single-destination-body {
   background: rgb(25,55,94);
   background: linear-gradient(270deg, rgba(25,55,94,1) 47%, rgba(29,118,140,1) 100%);
   min-height: (100vh);
+  display: flex;
+  flex-direction: column;
 }
 .search-functions{
   background-color: rgb(255, 255, 255 , 0.6);
@@ -98,6 +101,22 @@ h1, h2, h3 {
   font-family: 'Patua One', cursive;
 }
 
+.destinationSearch {
+  font-size: calc(1.375rem + 1.5vw);
+  font-weight: 300;
+  line-height: 1.2;
+  font-family: 'Patua One', cursive;
+  display: flex;
+  justify-content: center;
+}
+.destinationBar {
+  background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    width: 100vw;
+    box-shadow: 8px 8px 8px rgb(0 0 0 / 60%);
+    margin-bottom: 20px;
+}
+
 
 .hero {
   background-color: rgba(255, 255, 255, 0.8);
@@ -109,15 +128,110 @@ h1, h2, h3 {
   align-items: center;
   border-radius: 5px;
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
+  .btn {
+    font-size: 23px;
+  }
 }
-.btn {
-  font-size: 23px;
-}
+
 footer{
   justify-content: center;
   p {
     color: white;
     font-weight: bold;
     align-self: center;
+  }
+}
+.city{
+  margin: 0;
+}
+.city-info{
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(255, 255, 255 , 0.6);
+  padding: 0px;
+  display:flex;
+  flex-direction: column;
+
+  
+}
+
+.city-stats{
+  width: 650px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.city-stat {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 400;
+  width: 200px;
+}
+.budget{
+  &.city-stat[data-status='Extreme'],&.city-stat[data-status='Very High']{
+    background-color: red;
+  }
+  &.city-stat[data-status='High']{
+    background-color: rgb(255, 119, 0);
+  }
+  &.city-stat[data-status='Medium High']{
+    background-color: orange;
+  }
+  &.city-stat[data-status='Medium']{
+    background-color: rgb(255, 255, 0);
+    color: black;
+  }
+  &.city-stat[data-status='Medium Low']{
+    background-color: lightgreen;
+    color: black;
+  }
+  &.city-stat[data-status='Very Low']{
+    background-color: rgb(10, 191, 10);
+  }
+}
+.covid{
+  &.city-stat[data-status='Extreme'],&.city-stat[data-status='Critical']{
+    background-color: red;
+  }
+  &.city-stat[data-status='High']{
+    background-color: rgb(255, 119, 0);
+  }
+  &.city-stat[data-status='Medium']{
+    background-color: rgb(255, 255, 0);
+    color: black;
+  }
+  &.city-stat[data-status='Low']{
+    background-color: rgb(10, 191, 10);
+  }
+}
+.safety{
+  &.city-stat[data-status='Very Low']{
+    background-color: red;
+  }
+  &.city-stat[data-status='Low']{
+    background-color: orange;
+  }
+  &.city-stat[data-status='Medium']{
+    background-color: rgb(255, 255, 0);
+    color: black;
+  }
+  &.city-stat[data-status='High']{
+    background-color: lightgreen;
+    color: black;
+  }
+  &.city-stat[data-status='Very High']{
+    background-color: rgb(10, 191, 10);
+  }
+}
+.place-container{
+  background-color: white;
+  padding-bottom: 30px;
+  margin-top: 50px;
+  border-radius: 5px;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
+  .place-wrapper{
+    padding: 10px;
   }
 }

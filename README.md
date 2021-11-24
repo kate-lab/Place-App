@@ -37,7 +37,81 @@ Individual Destination
 
 As we had limited time to create the app, we decided to pair code the setup of the React app and the main components, and then worked on some individual features during the evening, including some of the CSS styling final touches.
 
-My main focus was developing the  filterable Destination Index, so I spent some time working out how to reduce an array of destinations dependent on what a user entered as a search term. I also built in some bootstrap elements to ensure the display of all destinations and individual destination display looked effective in the minimal time we had. We worked together on working out some of the paths for data and data relationships, digging down into the data to display the key information for each destination, both in the index page but also in a more detailed way on the individual destination page.
+My main focus was developing the filterable Destination Index, so I spent some time working out how to reduce an array of destinations dependent on what a user entered as a search term. This involved setting the search term based on whatever is entered into the search box, making an axios request to the Roadgoat API's auto_complete endpoint (a great feature!) based on this search term and then setting the destinations based on the data that is returned from the endpoint.
+
+```
+const [destinations, setDestinations] = useState([])
+const [search, setSearch] = useState('')
+const [error, setError] = useState(false)
+
+useEffect(() => {
+
+  const getData = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://api.roadgoat.com/api/v2/destinations/auto_complete?q=${search ? search : 'New'}`,
+        {
+          headers: {
+            Authorization: 'Basic MDNmMGQ2NGIzNmM0YWIyYzg2NzNiZjM2NWVmZmViNDI6OGY2OGU4OWM1ZDM1MmRhN2MzNGJmMmU3NzVhMDQ3Njg=',
+          },
+        }
+      )
+      setDestinations(data.data)
+      console.log(data.data)
+    } catch (error) {
+      setError(true)
+    }
+  }
+  getData()
+}, [search])
+  
+  const handleSearch = (event) => {
+    setSearch(event.target.value.toLowerCase())  
+  }
+  ```
+  
+The destinations set by this search were then mapped in to the grid as destination cards (including error handling as we found working with an API, sometimes the data takes a moment to load in so it's good to show the user that the page is loading or if there has been an error):
+
+```
+  return (
+
+    <section className="search-body text-center">
+      
+      <div className='search-functions destinationBar'>
+        <p className='destinationSearch'>
+          Find your favourite place: 
+          <input type='text' placeholder='Where do you want to go?' id='search-field' onInput={handleSearch}></input>
+        </p> 
+      </div>
+    
+      <div className='searched-destinations mt-4 container'>
+        <div className='row'>
+        
+          {destinations.length > 0 ?
+            destinations.map(destination => {
+              return <DestinationCard key={destination.id} destination={destination}/>
+            })
+            :
+            <>
+              {error ?
+                <h2 className='display-5 text-center'> Something went wrong!</h2>
+                :
+                <h2 className='display-5 text-center'> Loading...</h2>
+              }
+            </>
+          }
+          
+        </div> 
+      </div>
+      
+    </section>
+
+  )
+
+```
+
+I also built in some bootstrap elements to ensure the display of all destinations and individual destination display looked effective in the minimal time we had. We worked together on working out some of the paths for data and data relationships, digging down into the data to display the key information for each destination, both in the index page but also in a more detailed way on the individual destination page.
+
 
 ## API requests
 
